@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Movies.css"
+import "./movies.css"
 import { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 
