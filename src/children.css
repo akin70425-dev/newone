@@ -1,0 +1,69 @@
+.children-hero{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgb(211, 198, 198);
+    background-position: center center;
+    min-height: 100svh;
+    width:100%;
+    object-fit: cover;
+}
+.tvshows-links{
+     text-decoration: none;
+     color:rgb(211, 198, 198);
+}
+.menu p{
+    padding-top:7px ;
+    padding-left: 40px;
+}
+.hero-con{
+    padding-top: 360px;
+}
+.hero-con h5{
+    font-weight:450;
+    letter-spacing: 0.5px;
+    font-size: 30px;
+    line-height: 2px;
+}
+
+.hero-con h1{
+    font-weight:500;
+    letter-spacing: 1px;
+    font-size: 50px;
+}
+.hero-con p{
+    font-size: 18px;
+    padding-top: 4px;
+    letter-spacing: 0.2px;
+}
+.innerfooter{
+    padding-left: 83px;
+}
+.critical{
+    color:rgb(211, 198, 198);
+}
+
+.critical-image{
+    text-align: center;
+    
+}
+.critical-image {
+    height: 320px;
+    border:0px;
+   
+}
+.critical-image img{
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+.critical-roll{
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+::-webkit-scrollbar{
+    display: none;
+}

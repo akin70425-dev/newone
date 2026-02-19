@@ -1,0 +1,82 @@
+
+.g-full{
+     background-color: rgb(247, 235, 235);
+}
+.get-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(247, 235, 235);
+}
+.get-signin{
+    padding-top: 10px;
+    cursor: pointer;
+}
+.get-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(247, 235, 235);
+}
+.inner-form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgb(215, 199, 199);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 5px rgb(247, 235, 235);
+}
+button{
+    background-color: rgb(202, 28, 28);
+    border:none;
+    border-radius: 5px;
+    padding:10px;
+    color:white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+}
+input{
+    border-top: none ;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    padding:10px;
+    background-color: rgb(215, 199, 199);
+}
+#line{
+    padding-top: 8px;
+}
+.ho:hover{
+    background-color: rgb(179, 3, 3);
+    color:whitesmoke;
+}
+.logo:hover{
+color:rgb(179, 3, 3);
+}
+.inner-form:hover{
+    box-shadow: 0px 0px 15px 15px rgb(247, 235, 235);
+
+}
+.ftec p{
+    line-height: 35px;
+    font-size: 13px;
+    text-decoration: underline;
+}
+#g-option{
+    font-size: 13px;
+    background-color:white;
+    border-radius: 3px;
+    max-width: 100px;
+    margin-left: 0px !important;
+}
+.g-footerdiv{
+   background-color: rgb(215, 199, 199);
+   
+}
+#ff{
+    margin-top: 0px;
+}
+.mlef{
+    padding-left: 7rem;
+}

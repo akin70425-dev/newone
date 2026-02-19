@@ -1,0 +1,302 @@
+
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family:sans-serif;
+    box-sizing: border-box;
+    background-color: black !important;
+    overflow-x: hidden;
+    
+}
+.hr{
+    margin-top: 250px;
+    border: 4px solid rgb(251, 13, 13);
+    border-radius: 100%;
+}
+
+
+.full-con{
+    background: linear-gradient(rgba(0,0,0,0.7),rgb(0,0,0)), url("assets/netflix.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:aliceblue;
+    background-position: center center;
+    min-height: 100svh;
+    width:100%;
+    object-fit: cover;
+    
+}
+.logo{
+    
+    font-size: 2rem;
+    color:rgb(202, 28, 28);
+    cursor: pointer;
+}
+.navs{
+    display: flex;
+}
+.navs li{
+    list-style: none;
+
+}
+.navbars{
+    display: flex;
+    justify-content: space-between;
+}
+.btns{
+    font-size: 1rem;
+    margin-left: 25px;
+    padding: 7px 12px;
+    border-radius: 5px;
+    border:1px solid black;
+    background-color:rgb(202, 28, 28);
+    color:azure;
+    cursor: pointer;
+
+}
+.selects{
+    font-size: 1rem;
+    background-color: black;
+    color: azure;
+    border-radius: 5px;
+    border:0.1px solid rgb(82, 80, 80);
+    outline: none;
+    padding: 3px;  
+} 
+
+/*main content*/
+.ctn-1{
+    justify-content: center;
+    text-align: center;
+    margin-top: 110px;
+}
+.ctn-1-con{
+    width:500px;
+}
+.ctn-1 h1{
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+} 
+.ctn-1-btns{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    padding:14px;
+}
+.ctn-1-btns input{
+    padding: 15px;
+    max-width: 320px;
+    margin-left:6px;
+    background-color: black;
+    border-radius: 7px;
+    border-color: azure;
+    border-width: 1px;
+    border: 0.1px solid rgb(82, 80, 80);
+    outline: none;
+    color:azure;
+    font-size: 1.2rem;
+    
+}
+.ctn-1-btns button{
+    margin-left: 5px;
+    padding: 15px;
+    width: 170px;
+    border-radius: 7px;
+    border:1px solid black;
+    background-color:rgb(202, 28, 28);
+    color: azure;
+    font-size: 1.2rem;
+    cursor: pointer;
+} 
+.ctn-1-btns-con{
+    width: 600px;
+}
+
+
+
+
+
+/*---------------------sigin*/
+ .full-signin{
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)), url("assets/netflix.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:aliceblue;
+    background-position: center center;
+    height: 100svh;
+    box-sizing: border-box;
+     object-fit: cover;
+    
+}
+
+.signin-div{
+    justify-content: center;
+    align-items: center;
+}
+.signin-inner{
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding:6px;
+}
+.signin-btns{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.signin-btns input{
+    padding: 15px;
+    margin-top: 15px;
+    background-color: black;
+    border-radius: 7px;
+    border-color: azure;
+    border-width: 1px;
+    border: 0.1px solid rgb(82, 80, 80);
+    outline: none;
+    color:azure;
+    font-size: 1.2rem;
+    
+}
+.btn-signin{
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 7px;
+    border:1px solid black;
+    background-color:rgb(202, 28, 28);
+    color: azure;
+    font-size: 1rem;
+}
+.btn-usecode{
+    padding: 10px;
+    border-radius: 7px;
+    border:1px solid rgb(46,44,44);
+    background-color: rgb(46, 44, 44);
+    color: azure ;
+    font-size: 1.2rem;
+}
+.signin-btns p{
+    text-decoration: underline;
+}
+#footer p{
+    color:rgb(82, 80, 80)
+}
+#span{
+    color:whitesmoke;
+}
+#logo{
+    cursor: pointer;
+} 
+
+ 
+
+/*reason-------------*/
+
+.card-div{
+    justify-content: center;
+}
+.cards{
+
+    background: linear-gradient(rgb(30, 8, 124),rgba(13, 10, 32, 0.9));
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    position:relative;  
+    margin-left: 20px;
+    min-width: 300px;
+}
+.cards:hover{
+    background:linear-gradient(rgb(202, 28, 28),rgba(5, 2, 20, 0.9)) ;
+}
+
+
+.card icon{
+    color:rgb(22, 10, 44);
+    position: absolute;
+    top:220px;
+    left:150px;
+    font-size: 80px;
+}
+.join{
+    color:white;
+}
+
+/*----------foooter*/
+
+.footer-btns{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.buttons input{
+    padding: 15px;
+    max-width: 530px;
+    background-color: black;
+    border-radius: 7px;
+    border-color: azure;
+    border-width: 1px;
+    border: 0.1px solid rgb(82, 80, 80);
+    outline: none;
+    color:azure;
+    font-size: 1.6rem;
+    
+}
+.buttons button{
+    padding: 15px;
+    width: 200px;
+    margin-left: 3px;
+    border-radius: 7px;
+    border:1px solid black;
+    background-color:rgb(202, 28, 28);
+    color: azure;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.info p{
+    text-decoration: underline;
+    line-height: 3rem;
+}
+.footer-con{
+    color: beige;
+    background-color: black;
+}
+
+#oform{
+    
+    font-size: 1.5rem;
+    padding: 6px;
+    background-color: black;
+    color: azure;
+    border-radius: 5px;
+    border:0.1px solid rgb(82, 80, 80);
+    outline: none;
+}
+
+
+.home{
+    color:beige;
+}
+.link{
+color:azure
+}
+#link{
+    text-decoration: none;
+}
+#id-l{
+    text-decoration: none;
+    color: rgb(185, 15, 15);
+}
+.call u{
+    cursor: pointer;
+}
+.info p{
+    cursor: pointer;
+}
+.eh{
+    width:100px !important;
+    font-size: 15px !important;
+}
+
+
