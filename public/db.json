@@ -1,6 +1,6 @@
 {
 "movies": [
-  { "id": 1, "title": "Another Movie 1", "image": "images/spiderman.jpg","video":"rvKcQ2IAIxk" },
+  { "id": 1, "title": "Another Movie 1", "image": "https://xl.movieposterdb.com/25_11/2026/27613895/xl_goat-movie-poster_5df3f653.jpg?v=2026-02-11%2021:44:08","video":"rvKcQ2IAIxk" },
   { "id": 2, "title": "Another Movie 2", "image": "images/adulthood.jpg" ,"video":"g99KPOpqZ4Q"},
   { "id": 3, "title": "Another Movie 3", "image": "images/affinity.jpg","video":"6NTFK_6yr6I" },
   { "id": 4, "title": "Another Movie 4", "image": "images/myfault.jpg" ,"video":"gZgUW88D15w"},
