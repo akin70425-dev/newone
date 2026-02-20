@@ -14,46 +14,17 @@ function Home() {
     let [watchmovie,setwatchmovie]=useState(null);
     
 
-    useEffect(()=>{
-        fetch("http://localhost:4000/movies",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setmovies(data)
-        })
-    },[]
-    );
-    useEffect(()=>{
-        fetch("http://localhost:4000/movie2",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setscifi_movies(data)
-        })
-    },[]
-    );
-     useEffect(()=>{
-        fetch("http://localhost:4000/movie3",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return sethorror_movies(data)
-        })
-    },[]
-    ),
-    useEffect(()=>{
-        fetch("http://localhost:4000/movie4",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setcomady_movies(data)
-        })
-    },[]
-    )
+   useEffect(() => {
+     fetch("/db.json")
+       .then(res => res.json())
+       .then(data => {
+           console.log(data);
+         setmovies(data.movies);
+         setscifi_movies(data.movie2);
+         sethorror_movies(data.movie3);
+         setcomady_movies(data.movie4);
+       });
+   }, []);
 let hero=[
     {"id":1,"img":"images/dd.jpeg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(39, 2, 2, 1))"},
     {"id":1,"img":"images/retro.jpeg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(11, 59, 81, 1))"},

@@ -10,46 +10,17 @@ function Criticaltv() {
     let [comady_movies,setcomady_movies]=useState([]);
     
 
-    useEffect(()=>{
-        fetch("http://localhost:4000/movies",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setmovies(data)
-        })
-    },[]
-    );
-    useEffect(()=>{
-        fetch("http://localhost:4000/movie2",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setscifi_movies(data)
-        })
-    },[]
-    );
-     useEffect(()=>{
-        fetch("http://localhost:4000/movie3",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return sethorror_movies(data)
-        })
-    },[]
-    ),
-    useEffect(()=>{
-        fetch("http://localhost:4000/movie4",{method:"Get"})
-        .then((response)=>{
-            return response.json()
-        })
-        .then((data)=>{
-            return setcomady_movies(data)
-        })
-    },[]
-    )
+   useEffect(() => {
+     fetch("/db.json")
+       .then(res => res.json())
+       .then(data => {
+           console.log(data);
+         setmovies(data.movies);
+         setscifi_movies(data.movie2);
+         sethorror_movies(data.movie3);
+         setcomady_movies(data.movie4);
+       });
+   }, []);
 
 
 let randommovies=[...movies].sort(()=>Math.random()-0.5);
