@@ -46,6 +46,14 @@ function handleactive(id){
     setwatchmovie(movie);
 };
 
+function handleactivehorror(id){
+    setactive(true);
+  let movie= randomhorror_movies.find((data)=>{
+        return data.id===id;
+    })
+    setwatchmovie(movie);
+};
+
 function handleclose(){
     setactive(false);
     setwatchmovie(null);
@@ -130,7 +138,7 @@ function handleclose(){
             {
                 randomscifi_movies.slice(0,20).map((data)=>{
                 return <div className="col-2 critical-image" key={data.id}>
-      <img src={data.image} className="img-fluid" alt="" />
+      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactive(data.id)}}/>
     </div>} )
             }
 </div>
@@ -144,7 +152,7 @@ function handleclose(){
             {
                 randomhorror_movies.slice(0,20).map((data)=>{
                 return <div className="col-2 critical-image" key={data.id}>
-      <img src={data.image} className="img-fluid" alt="" />
+      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivehorror(data.id)}}/>
     </div>} )
             }
 </div>
@@ -158,7 +166,7 @@ function handleclose(){
             {
                 randomcomady_movies.slice(0,20).map((data)=>{
                 return <div className="col-2 critical-image" key={data.id}>
-      <img src={data.image} className="img-fluid" alt="" />
+      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactive(data.id)}}/>
     </div>} )
             }
 </div>
