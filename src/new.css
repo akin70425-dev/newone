@@ -16,9 +16,7 @@
     padding-top:7px ;
     padding-left: 40px;
 }
-.hero-con{
-    padding-top: 360px;
-}
+
 .hero-con h5{
     font-weight:450;
     letter-spacing: 0.5px;
@@ -66,4 +64,72 @@
 }
 ::-webkit-scrollbar{
     display: none;
+}
+@media(max-width:574px){
+    .innerfooter{
+        padding-left:10px !important;
+    }
+}
+@media(max-width:1024px){
+    .critical-image{
+        height:270px !important;
+    }
+}
+@media(max-width:992px){
+    .hero-con h1{
+        font-weight: 400 !important;
+        font-size: 30px !important;
+    }
+    .hero-con p{
+        font-size: 14px !important;
+    }
+}
+@media(max-width:779px){
+    .hero-con p{
+        font-size: 12px !important;
+    }
+     .critical-image{
+        height:250px !important;
+    }
+}
+@media(max-width:545px){
+    .hero-con p{
+        font-weight: 300;
+        font-size: 8px !important;
+    }
+     .critical-image{
+        padding: 0px 10px !important;
+    }
+}
+@media(max-width:434px){
+    .hero-con p{
+        font-size: 7px !important;
+    }
+    .critical-image{
+        height:250px !important;
+    }
+}
+@media(max-width:391px){
+    .hero-con p{
+        font-size: 6px !important;
+    }
+    .critical-image{
+        height:250px !important;
+    }
+}
+@media(max-width:344px){
+    .hero-con p{
+        font-size: 5px !important;
+    }
+    .hero-cons button{
+        padding: 5px;
+        font-size: 11px;
+    }
+    .menu .logo{
+        font-size: 24px;
+    }
+    .toggle{
+        padding: 0px 7px !important;
+        font-size: 14px !important;
+    }
 }

@@ -15,7 +15,10 @@
     padding-top:7px ;
     padding-left: 40px;
 }
-.hero-con{
+.open{
+    padding-top:78px;
+}
+.notopen{
     padding-top: 360px;
 }
 .hero-con h5{
@@ -87,16 +90,17 @@
 }
 .close{
     position: absolute;
-    top: 0px;
-    left:78rem;
-    font-size: 30px;
+    top:9px;
+    right:12rem;
+    font-size: 31px;
     text-align: center;
     line-height: 23px;
-    padding-top: 9px;
+    z-index: 1000;
+    margin: 0%;
     
 }
 .close span{
-font-size: 14px;
+font-size: 13px;
 text-align: center;
 
 }

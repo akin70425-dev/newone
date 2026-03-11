@@ -12,7 +12,11 @@ function Home() {
     let [comady_movies,setcomady_movies]=useState([]);
     let [active,setactive]=useState(false);
     let [watchmovie,setwatchmovie]=useState(null);
-    
+    let [randomhero,setrandomhero]=useState([]);
+    let [randommovies,setrandommovies]=useState([]);
+            let [randomscifi_movies,setrandomscifi_movies]=useState([]);
+            let [randomhorror_movies,setrandomhorror_movies]=useState([]);   
+            let [randomcomady_movies,setrandomcomady_movies]=useState([]);
 
    useEffect(() => {
      fetch("/db.json")
@@ -26,17 +30,31 @@ function Home() {
        });
    }, []);
 let hero=[
-    {"id":1,"img":"images/dd.jpeg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(39, 2, 2, 1))"},
-    {"id":1,"img":"images/retro.jpeg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(11, 59, 81, 1))"},
-    {"id":1,"img":"images/pi.jpeg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(20, 39, 65, 1))"},
-    {"id":1,"img":"images/st.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/22458.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(39, 2, 2, 1))"},
+    {"id":1,"img":"https://wallpapercave.com/wp/wp15870081.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(11, 59, 81, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/7773.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(20, 39, 65, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24522.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
 ]
 
-let randommovies=[...movies].sort(()=>Math.random()-0.5);
-let randomscifi_movies=[...scifi_movies].sort(()=>Math.random()-0.5);
-let randomhorror_movies=[...horror_movies].sort(()=>Math.random()-0.5);
-let randomcomady_movies=[...comady_movies].sort(()=>Math.random()-0.5);
-const randomhero = hero[Math.floor(Math.random() * hero.length)];
+useEffect(()=>{
+setrandommovies([...movies].sort(()=>Math.random()-0.5));
+},[movies]);
+
+useEffect(()=>{
+setrandomscifi_movies([...scifi_movies].sort(()=>Math.random()-0.5));
+},[scifi_movies]);
+
+useEffect(()=>{
+setrandomhorror_movies([...horror_movies].sort(()=>Math.random()-0.5));
+},[horror_movies]);
+
+useEffect(()=>{
+setrandomcomady_movies([...comady_movies].sort(()=>Math.random()-0.5));
+},[comady_movies]);
+
+useEffect(() => {
+  setrandomhero(hero[Math.floor(Math.random() * hero.length)]);
+}, []);
 
 function handleactive(id){
     setactive(true);
@@ -53,13 +71,33 @@ function handleactivehorror(id){
     })
     setwatchmovie(movie);
 };
-
+function handleactivescifi(id){
+    setactive(true);
+  let movie= randomscifi_movies.find((data)=>{
+        return data.id===id;
+    })
+    setwatchmovie(movie);
+};
+function handleactivecomady(id){
+    setactive(true);
+  let movie= randomcomady_movies.find((data)=>{
+        return data.id===id;
+    })
+    setwatchmovie(movie);
+};
 function handleclose(){
     setactive(false);
     setwatchmovie(null);
 }
+function handleheroplay(){
+    setactive(true);
+    setwatchmovie(randomhero);
+}
+ const [open,setOpen] = useState(false)
 
-    
+function toggleMenu(){
+  setOpen(!open)
+}   
   return (
     <>
     <div className='ab'> 
@@ -70,38 +108,51 @@ function handleclose(){
       src={`https://www.youtube.com/embed/${watchmovie.video}?rel=0`}
       title="YouTube trailer"
       allow=" encrypted-media"
-      allowFullScreen
     ></iframe>}
     <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
     <span >Close</span>
     </p>
     </div>
-     <div className=" home-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgb(0,0,0)), url(${randomhero.img})`}}>
+     <div className=" home-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgb(0,0,0)), url(${randomhero.img})`}}>
     <div className="container">
 
-        <div className="row pb-5 pt-4 menu">
-            <div className="col-10 d-flex">
-                <h2 className='logo'>NETFLIX</h2>
-                <p ><Link to="/home" className='tvshows-links'>Home</Link></p>
-                <p><Link to="/tvshows" className='tvshows-links'>Tv Shows</Link></p>
-                <p><Link to="/movies" className='tvshows-links'>Movies</Link></p>
-                <p><Link to="/new" className='tvshows-links'>New & Popular</Link></p>
-            </div>
-            <div className="col-2 d-flex">
-                <p ><Link to="/children" className='tvshows-links'>Children</Link></p>
-                <p ><Link to="/children" className='tvshows-links'>Accounts</Link></p> 
-            </div>
-        </div>
-        <div className="row  hero-con">
+        
+    
+
+<div className="row pb-5 pt-4 menu align-items-center ">
+
+  <div className=" col-sm-12 col-md-12 col-lg-2 d-flex justify-content-between">
+    <h2 className="logo">NETFLIX</h2>
+    <button className="btn btn-light d-lg-none mb-3" onClick={toggleMenu}>
+  ☰
+</button>
+  </div>
+  <div className={`col-12 col-lg-8 ${open ? "d-block" : "d-none"} d-lg-flex`}>
+    <p className="me-3"><Link to="/home" className="tvshows-links">Home</Link></p>
+    <p className="me-3"><Link to="/tvshows" className="tvshows-links">Tv Shows</Link></p>
+    <p className="me-3"><Link to="/movies" className="tvshows-links">Movies</Link></p>
+    <p className="me-3"><Link to="/new" className="tvshows-links">New & Popular</Link></p>
+  </div>
+
+  <div className={`col-12 col-lg-2 ${open ? "d-block" : "d-none"} d-lg-flex justify-content-lg-end`}>
+    <p className="me-3"><Link to="/children" className="tvshows-links">Children</Link></p>
+    <p><Link to="/children" className="tvshows-links">Accounts</Link></p>
+  </div>
+
+
+
+    </div>
+
+        <div className={`row  hero-con ${open?"open":"notopen"} `} >
             <div className="col-12">
                 
                 <h1>WEDNESDAY</h1>
                 <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
             </div>
         </div>
-        <div className="row hero-cons">
+        <div className="row hero-cons pb-5">
             <div className="col-12">
-                <button>Play</button>
+                <button onClick={()=>{handleheroplay()}}>Play</button>
                 <button className='m-2'>More info</button>
             </div>
         </div>
@@ -138,7 +189,7 @@ function handleclose(){
             {
                 randomscifi_movies.slice(0,20).map((data)=>{
                 return <div className="col-2 critical-image" key={data.id}>
-      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactive(data.id)}}/>
+      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivescifi(data.id)}}/>
     </div>} )
             }
 </div>
@@ -166,7 +217,7 @@ function handleclose(){
             {
                 randomcomady_movies.slice(0,20).map((data)=>{
                 return <div className="col-2 critical-image" key={data.id}>
-      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactive(data.id)}}/>
+      <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivecomady(data.id)}}/>
     </div>} )
             }
 </div>
