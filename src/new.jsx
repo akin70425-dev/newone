@@ -182,7 +182,7 @@ function toggleMenu(){
         <div className="row g-3 pb-5 flex-nowrap critical-roll">
             {
                 randomscifi_movies.slice(0,20).map((data)=>{
-                return <div className="col-2 critical-image" key={data.id}>
+                 return <div className="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 critical-image" key={data.id}>
       <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivescifi(data.id)}}/>
     </div>} )
             }
@@ -196,7 +196,7 @@ function toggleMenu(){
         <div className="row g-3 pb-5 flex-nowrap critical-roll">
             {
                 randomhorror_movies.slice(0,20).map((data)=>{
-                return <div className="col-2 critical-image" key={data.id}>
+                 return <div className="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 critical-image" key={data.id}>
       <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivehorror(data.id)}}/>
     </div>} )
             }
@@ -210,7 +210,7 @@ function toggleMenu(){
         <div className="row g-3 pb-5 flex-nowrap critical-roll">
             {
                 randomcomady_movies.slice(0,20).map((data)=>{
-                return <div className="col-2 critical-image" key={data.id}>
+                 return <div className="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6 critical-image" key={data.id}>
       <img src={data.image} className="img-fluid" alt="" onClick={()=>{handleactivecomady(data.id)}}/>
     </div>} )
             }
