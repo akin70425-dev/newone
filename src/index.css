@@ -26,7 +26,7 @@ body{
     object-fit: cover;
     
 }
-.logo{
+.logoo{
     
     font-size: 2rem;
     color:rgb(202, 28, 28);
@@ -35,17 +35,13 @@ body{
 .navs{
     display: flex;
 }
-.navs li{
-    list-style: none;
 
-}
 .navbars{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-betwee;
 }
 .btns{
     font-size: 1rem;
-    margin-left: 25px;
     padding: 7px 12px;
     border-radius: 5px;
     border:1px solid black;
@@ -55,13 +51,11 @@ body{
 
 }
 .selects{
-    font-size: 1rem;
     background-color: black;
     color: azure;
     border-radius: 5px;
     border:0.1px solid rgb(82, 80, 80);
     outline: none;
-    padding: 3px;  
 } 
 
 /*main content*/
@@ -193,18 +187,15 @@ body{
 
 /*reason-------------*/
 
-.card-div{
-    justify-content: center;
-}
+
 .cards{
 
     background: linear-gradient(rgb(30, 8, 124),rgba(13, 10, 32, 0.9));
     color: white;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px;
     position:relative;  
-    margin-left: 20px;
-    min-width: 300px;
+    min-height: 300px;
 }
 .cards:hover{
     background:linear-gradient(rgb(202, 28, 28),rgba(5, 2, 20, 0.9)) ;
@@ -294,9 +285,43 @@ color:azure
 .info p{
     cursor: pointer;
 }
+@media(max-width:1430px){
+.ho{
+    font-size: 10px;
+}
 .eh{
-    width:100px !important;
-    font-size: 15px !important;
+    font-size: 10px !important;
+    padding: 10px !important;
 }
 
+}
+@media(max-width:900px){
+.ho{
+    font-size: 10px;
+}
+.eh{
+    font-size: 15px !important;
+    padding: 1px 4px !important;
+}
 
+}
+@media(max-width:425px){
+.row{
+margin-right: 0 !important; 
+margin-left: 0 !important; 
+}
+.logo{
+    font-size: 26px;
+
+}
+.ho{
+    font-size: 11px;
+    margin-top: 3px;
+}
+}
+@media(max-width:388px){
+.ho{
+    font-size: 7px;
+    margin-top: 5px;
+}
+}

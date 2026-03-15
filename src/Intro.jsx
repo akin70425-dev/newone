@@ -32,16 +32,20 @@ function navigate(){
     <div className=' full-con img-fluid'>
       <div className='container py-5'>
     <div className='row'>
-    <div className='col-12 navbars'>
- <h2 className='logo'>NETFLIX</h2>
-    <ul className='navs'>
-        <li><Form.Select aria-label="Default select example" className='selects'>
+    <div className='col-lg-10 col-md-7 col-9'>
+ <h2 className='logoo'>NETFLIX</h2>
+    </div>
+    <div className='col-lg-1 col-md-4 col-2 d-lg-block d-md-block d-none'>
+       <Form.Select aria-label="Default select example" className='eh mb-4'>
       <option value="1">English</option>
       <option value="2">Hindi</option>
-    </Form.Select></li>
-        <li><button type="button" className='btns ho' onClick={navigate}>Sign in</button></li>
-    </ul>
+    </Form.Select>
     </div>
+    <div className='col-lg-1 col-md-1  col-3 '>
+        <button type="button" className='btns ho' onClick={navigate}>Sign in</button>
+    
+    </div>
+
       </div>
       </div>
    

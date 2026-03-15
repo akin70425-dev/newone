@@ -32,20 +32,21 @@ function Reason() {
     ])
   return (
     <div className='container py-5'>
-    <div className="row ">
+    <div className="row  ">
         <div className='col-12'>
             <h1 className='pb-3 join'>More reasons to join</h1>
             </div>
-            <div className="row gy-3 card-div">
-                {data.map((data)=>
-                {
-                    return <div className=" col-2 cards" key={data.id}>
-                        <h2>{data.heading}</h2>
-                        <p>{data.detail}</p>
-                        <i>{data.icon}</i>
-                    </div>
-                })}
-            </div>
+            <div className="row gy-3 ">
+  {data.map((item) => (
+    <div className="col-12 col-sm-6 col-md-4 col-lg-3 " key={item.id}>
+      <div className="cards">
+        <h2>{item.heading}</h2>
+        <p>{item.detail}</p>
+        <i>{item.icon}</i>
+      </div>
+    </div>
+  ))}
+</div>
             </div>
         </div>
   )

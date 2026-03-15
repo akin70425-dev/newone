@@ -49,29 +49,47 @@
     color:rgb(211, 198, 198);
 }
 
-.critical-image{
-    text-align: center;
-    
-}
-.critical-image {
-    height: 320px;
-    border:0px;
-   
-}
-.critical-image img{
-    border-radius: 15px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    
-}
+
 .critical-roll{
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding-left:10px;
+scroll-behavior:smooth;
 }
-::-webkit-scrollbar{
-    display: none;
+
+.critical-roll::-webkit-scrollbar{
+display:none;
+}
+
+
+
+.critical-image{
+flex:0 0 17%;
+}
+
+@media(max-width:992px){
+.critical-image{
+flex:0 0 29%;
+}
+}
+
+
+
+@media(max-width:576px){
+.critical-image{
+flex:0 0 58%;
+}
+}
+
+.critical-image img{
+width:100%;
+border-radius:8px;
+transition:0.3s;
+}
+
+.critical-image img:hover{
+transform:scale(1.05);
 }
 
 .ab{
