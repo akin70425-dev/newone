@@ -4,16 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setpassword1,reset,resetemailonly } from './dataslice';
+import { } from './dataslice';
 
 
 function Getstart() {
     let navigate=useNavigate();
-    let tem=useSelector((state)=>state.users.tem);
-    let user=useSelector((state)=>state.users.users);
-    let email=useSelector((state)=>state.users.email)
-    let password1=useSelector((state)=>state.users.password1);
-    let common=tem||email
     let dispatch=useDispatch();
 
 

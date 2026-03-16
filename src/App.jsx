@@ -3,20 +3,29 @@ import { useEffect } from 'react';
 import './App.css';
 import Intro from './Intro';
 import Signin from './Signin';
-import {Routes,Route} from "react-router-dom";
+import {Routes,Route, useNavigate} from "react-router-dom";
 import Getstart from './Getstart';
 import Home from './home';
 import Tvshows from './tvshows';
 import Movies from './Movies';
 import New from './new';
 import Children from './children';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase';
 
 function App() {
-
-  /*fetch("https://fakestoreapi.com/users").then((response)=>{return response.json()}).then((data)=>{
-    return console.log(data)
-  })*/
-
+let nav=useNavigate();
+useEffect(()=>{
+  const check=onAuthStateChanged(auth,(user)=>{
+    
+      if (user) {
+        nav("/home");  
+      } else {
+        nav("/"); 
+      }
+  })
+  return check;
+},[])
   return (
     <>
     <Routes>

@@ -1,28 +1,13 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { resetfull,setemail } from './dataslice';
+
 
 
 function Footer() {
     let sam=">"
-    let nave=useNavigate();
-   let dispatch=useDispatch();
-let email=useSelector((state)=>state.users.email);
-let users=useSelector((state)=>state.users.users);
-
-    function nav(){
-    let test=users.find((data)=>{
-        return data.number===email
-      })
-      if(test){
-        nave('/getstart')
-      }
-      else{
-      dispatch(resetfull())
-      }
-    }
+    
+   
+    
     
   return (
     <>
@@ -31,8 +16,8 @@ let users=useSelector((state)=>state.users.users);
             <div className="col-12 ">
                 <p className='pb-4'>Ready to watch? Enter your email to create or restart your membership.</p>
                 <div className='buttons pb-5'>
-                <input type="text" placeholder='Email address' value={email} onChange={(e)=>{return dispatch(setemail(e.target.value))}} required/>
-                <button className="ho" onClick={nav}>Get Strated {sam}</button>
+                <input type="text" placeholder='Email address' value={""}  required/>
+                <button className="ho" onClick={()=>{}}>Get Strated {sam}</button>
                 </div>
             </div>
         </div>

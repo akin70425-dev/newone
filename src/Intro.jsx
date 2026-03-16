@@ -1,28 +1,17 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
 import Reason from './Reason';
 import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetfull, setemail } from './dataslice';
+import { useNavigate } from 'react-router-dom';
 
 function Intro() {
-let dispatch=useDispatch();
-let email=useSelector((state)=>state.users.email)
-let users=useSelector((state)=>state.users.users)
-  let nav=useNavigate();
-    let sim=">"
-function start(){
-  let test=users.find((data)=>{
-    return data.number===email
-  })
-  if(test){
-    nav('/getstart')
-  }
-  else{
-  dispatch(resetfull())
-  }
-}
+
+let [email,setemail]=useState();
+let sim=">"
+let nav=useNavigate();
+  
+
 function navigate(){
   nav('/signin')
 }
@@ -60,9 +49,8 @@ function navigate(){
     
         <div className='row ctn-1-btns'>
         <div className='col-12 ctn-1-btns-con'>
-        <input type="email" placeholder='Email address' value={email} 
-        onChange={(e)=>{return dispatch(setemail(e.target.value))}} required/>
-        <button type="button " className="ho" onClick={start}>Get Start {sim}</button>
+        <input type="email" placeholder='Email address' value={email}  required/>
+        <button type="button " className="ho" >Get Start {sim}</button>
         <hr className='hr'></hr>
         </div>
         </div>
