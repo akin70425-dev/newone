@@ -15,17 +15,36 @@ import { auth } from './firebase';
 
 function App() {
 let nav=useNavigate();
-useEffect(()=>{
-  const check=onAuthStateChanged(auth,(user)=>{
-    
-      if (user) {
-        nav("/home");  
-      } else {
-        nav("/"); 
+
+useEffect(() => {
+  let interval;
+
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      nav("/");
+      return;
+    }
+
+    interval = setInterval(async () => {
+      await user.reload();
+
+      if (user.emailVerified) {
+        
+        if (window.location.pathname === "/") {
+          nav("/home");
+        }
+        clearInterval(interval);
       }
-  })
-  return check;
-},[])
+    }, 3000);
+  });
+
+  return () => {
+    unsubscribe();
+    if (interval) clearInterval(interval);
+  };
+}, []);
+
+
   return (
     <>
     <Routes>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
 import { auth } from "./firebase";
 
 function Signin() {
@@ -13,25 +13,38 @@ let[check,setcheck]=useState(true);
 function handlecheck(){
   setcheck(!check)
 }
-function createuser(){
+function createuser() {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(async (userinfo) => {
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userinfo) => {
-    alert("signup successfully")
-  })
-  .catch((error) => {
-    alert(error.message);
-  });
+      await sendEmailVerification(userinfo.user);
+
+      alert("Verification email sent . Please check your inbox.");
+
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+
   setemail("");
   setpassword("");
 }
-function signin(){
+
+function signin() {
   signInWithEmailAndPassword(auth, email, password)
-  .then((userinfo) => {
-  })
-  .catch((error) => {
-    alert(error.message);
-  });
+    .then((userinfo) => {
+      const user = userinfo.user;
+
+      if (user.emailVerified) {
+        nav("/home"); // ✅ FORCE navigation
+      } else {
+        alert("Please verify email");
+      }
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+
   setemail("");
   setpassword("");
 }
