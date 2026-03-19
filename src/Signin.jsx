@@ -36,7 +36,7 @@ function signin() {
       const user = userinfo.user;
 
       if (user.emailVerified) {
-        nav("/home"); // ✅ FORCE navigation
+        nav("/home"); 
       } else {
         alert("Please verify email");
       }

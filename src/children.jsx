@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 function Children() {
-
+  let nav=useNavigate();
     let [movies,setmovies]=useState([]);
     let [scifi_movies,setscifi_movies]=useState([]);
     let [horror_movies,sethorror_movies]=useState([]);
@@ -124,16 +124,16 @@ function toggleMenu(){
                      ☰
                    </button>
                      </div>
-                     <div className={`col-12 col-lg-8 ${open ? "d-block" : "d-none"} d-lg-flex`}>
+                     <div className={`col-12 col-lg-7  ${open ? "d-block" : "d-none"} d-lg-flex`}>
                        <p className="me-3"><Link to="/home" className="tvshows-links">Home</Link></p>
                        <p className="me-3"><Link to="/tvshows" className="tvshows-links">Tv Shows</Link></p>
                        <p className="me-3"><Link to="/movies" className="tvshows-links">Movies</Link></p>
                        <p className="me-3"><Link to="/new" className="tvshows-links">New & Popular</Link></p>
                      </div>
                    
-                     <div className={`col-12 col-lg-2 ${open ? "d-block" : "d-none"} d-lg-flex justify-content-lg-end`}>
-                       <p className="me-3"><Link to="/children" className="tvshows-links">Children</Link></p>
-                       <p><Link to="/children" className="tvshows-links">Accounts</Link></p>
+                     <div className={`col-12 col-lg-3  ${open ? "d-block" : "d-none"} d-lg-flex justify-content-lg-end justify-content-md-start`}>
+                       <p className="me-3 "><Link to="/children" className="tvshows-links">Children</Link></p>
+                       <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" className="me-3 avatar" alt="avatar" onClick={() => nav("/accounts")} width={30} height={25}/>
                      </div>
                </div>
          <div className={`row  hero-con ${open?"open":"notopen"}`}>

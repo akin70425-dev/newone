@@ -1,7 +1,7 @@
 import React from 'react'
 import "./home.css"
 import { useState,useEffect } from 'react';
-import { Link} from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
 
 
 function Home() {
@@ -17,12 +17,12 @@ function Home() {
             let [randomscifi_movies,setrandomscifi_movies]=useState([]);
             let [randomhorror_movies,setrandomhorror_movies]=useState([]);   
             let [randomcomady_movies,setrandomcomady_movies]=useState([]);
+            let nav=useNavigate();
 
    useEffect(() => {
      fetch("/db.json")
        .then(res => res.json())
        .then(data => {
-           console.log(data);
          setmovies(data.movies);
          setscifi_movies(data.movie2);
          sethorror_movies(data.movie3);
@@ -136,7 +136,7 @@ function toggleMenu(){
 
   <div className={`col-12 col-lg-2 ${open ? "d-block" : "d-none"} d-lg-flex justify-content-lg-end`}>
     <p className="me-3"><Link to="/children" className="tvshows-links">Children</Link></p>
-    <p><Link to="/children" className="tvshows-links">Accounts</Link></p>
+     <img src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg" className="me-3 avatar" alt="avatar" onClick={() => nav("/accounts")} width={30} height={25}/>
   </div>
 
 

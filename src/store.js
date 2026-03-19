@@ -4,7 +4,7 @@ import dataslicereducer from './dataslice'
 const store=configureStore(
     {
         reducer:{
-        users:dataslicereducer
+        user:dataslicereducer
         }
     }
 )

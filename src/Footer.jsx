@@ -50,7 +50,7 @@ function Footer() {
             </p></div>
             </div>
             </div>
-            <Form.Select aria-label="Default select example" className='eh mb-4'>
+            <Form.Select aria-label="Default select example" className='eh-1 mb-4'>
       <option value="1">English</option>
       <option value="2">Hindi</option>
     </Form.Select>
