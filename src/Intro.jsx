@@ -49,7 +49,7 @@ function navigate(){
     
         <div className='row ctn-1-btns'>
         <div className='col-12 ctn-1-btns-con'>
-        <input type="email" placeholder='Email address' value={email}  required/>
+        <input type="email" placeholder='Email address'className='getinput' value={email}  required/>
         <button type="button " className="ho" >Get Start {sim}</button>
         <hr className='hr'></hr>
         </div>
