@@ -222,7 +222,7 @@ body{
 }
 .buttons input{
     padding: 15px;
-    max-width: 500px;
+    max-width: 400px;
     background-color: black;
     border-radius: 7px;
     border-color: azure;
@@ -231,6 +231,7 @@ body{
     outline: none;
     color:azure;
     font-size: 1.4rem;
+    margin: 0px !important;
     
 }
 .buttons button{

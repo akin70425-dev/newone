@@ -5,20 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { removeemailcopy } from './dataslice';
 
+
 function Footer() {
 
   let nav=useNavigate();
     let sim=">"
-    let emailcopy=useSelector((state)=>state.user.emailcopy)
+    let emailcopy=useSelector((state)=>state.user.emailcopy);
    let dispatch=useDispatch();
     
     function getnav(){
       if(emailcopy){
         nav("/signin");
-        dispatch(removeemailcopy());
       }
     }
-
   return (
     <>
     <div className="container py-5 footer-con">
@@ -35,25 +34,25 @@ function Footer() {
           <div className="col-12">
             <p className='pb-3'>Questions? <u role='button'>Call 000-800-919-1743</u> </p>
           </div>
-        <div className="row  info">
-            <div className="col-3 "><p role='button'>FAQ<br/>
+       <div className="row  info">
+            <div className="col-lg-3 col-md-6 col-sm-12"><p role='button'>FAQ<br/>
             Investers Relations<br/>
             Privacy <br />
             Speed Test
             </p>
             </div>
-            <div className="col-3 "><p role='button'>Help Center<br/>
+            <div className="col-lg-3 col-md-6 col-sm-12 "><p role='button'>Help Center<br/>
             Jobs<br/>
             Cookie Preferences<br />
             Legal Notices
             </p>
             </div>
-            <div className="col-3 "><p role='button'>Account<br/>
+            <div className="col-lg-3 col-md-6 col-sm-12 "><p role='button'>Account<br/>
             Ways to Watch<br/>
             Corparate Information<br />
             Only on Netflix
             </p></div>
-            <div className="col-3 "><p role='button'>Media Center<br/>
+            <div className="col-lg-3 col-md-6 col-sm-12 "><p role='button'>Media Center<br/>
             Trems of Use<br/>
             Privacy <br />
             Contact Us

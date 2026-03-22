@@ -4,7 +4,7 @@ import Reason from './Reason';
 import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setemailcopy } from './dataslice';
+import { setemailcopy,removeemailcopy } from './dataslice';
 
 function Intro() {
 let emailcopy=useSelector((state)=>state.user.emailcopy)
@@ -18,7 +18,6 @@ function navigate(){
 function getnav(){
       if(emailcopy){
         nav("/signin");
-        dispatch(removeemailcopy());
       }
     }
 
