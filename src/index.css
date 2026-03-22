@@ -58,7 +58,8 @@ body{
     outline: none;
 } 
 
-/*main content*/
+
+
 .ctn-1{
     justify-content: center;
     text-align: center;
@@ -249,6 +250,7 @@ body{
 .info p{
     text-decoration: underline;
     line-height: 3rem;
+    margin:0px !important;
 }
 .footer-con{
     color: beige;
@@ -310,24 +312,41 @@ color:azure
     padding: 1px 4px !important;
 }
 
+
 }
 @media(max-width:425px){
 .row{
 margin-right: 0 !important; 
 margin-left: 0 !important; 
 }
+.info{
+    padding: 0px !important;
+}
 .logo{
     font-size: 26px;
 
+}
+.copyright{
+    padding-left: 8px ;
 }
 .ho{
     font-size: 11px;
     margin-top: 3px;
 }
+.full-con{
+    max-height: 120vh;
+}
+.ctn-1{
+    margin-top: 110px;
+}
+.ctn-1 h1{
+
+    font-size: 2rem;
+} 
 }
 @media(max-width:388px){
 .ho{
-    font-size: 7px;
+    font-size: 9px;
     margin-top: 5px;
 }
 }

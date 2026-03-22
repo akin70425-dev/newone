@@ -255,15 +255,15 @@ onClick={()=>handleactive(data.id)}
             Corparate Information<br />
             Only on Netflix
             </p></div>
-            <div className="col-lg-3 col-md-6 col-sm-12"><p role='button'>Media Center<br/>
+            <div className="col-lg-3 col-md-6 col-sm-12 "><p role='button'>Media Center<br/>
             Trems of Use<br/>
             Privacy <br />
             Contact Us
             </p></div>
             </div>
             </div>
-        <p >Netflix India</p>
-        <footer className='pt-2'>
+        <p className='copyright'>Netflix India</p>
+        <footer className='pt-2 copyright'>
             This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
         </footer>
         </div>

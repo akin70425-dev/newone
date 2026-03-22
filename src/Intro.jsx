@@ -24,24 +24,19 @@ function getnav(){
   return (
     <>
     <div className=' full-con img-fluid'>
-      <div className='container py-5'>
-    <div className='row'>
-    <div className='col-lg-10 col-md-7 col-9'>
- <h2 className='logo'>NETFLIX</h2>
-    </div>
-    <div className='col-lg-1 col-md-4 col-2 d-lg-block d-md-block d-none'>
-       <Form.Select aria-label="Default select example" className='eh mb-4'>
-      <option value="1">English</option>
-      <option value="2">Hindi</option>
-    </Form.Select>
-    </div>
-    <div className='col-lg-1 col-md-1  col-3 '>
-        <button type="button" className='btns ho' onClick={navigate}>Sign in</button>
-    
-    </div>
+      <div className="container py-3">
+  <div className="d-flex align-items-center justify-content-between flex-wrap">
+    <h2 className="logo alone m-0">NETFLIX</h2>
+    <div className="d-flex  gap-2  mt-md-0">
+      <Form.Select className="d-none d-md-block"  style={{ width: "100px" }}>
+        <option>English</option>
+        <option>Hindi</option>
+      </Form.Select>
 
-      </div>
-      </div>
+      <button className="btns"onClick={navigate}>Sign in</button>
+    </div>
+  </div>
+</div>
    
     <div className='container py-5 ctn-1 '>
         <div className='row '>

@@ -20,23 +20,25 @@ let nav=useNavigate();
 let dispatch=useDispatch();
 
 useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth,(userinfo) => {
+  const unsubscribe = onAuthStateChanged(auth, async (userinfo) => {
 
     if (userinfo) {
-      userinfo.reload();
+      await userinfo.reload();
+
+      if (!userinfo.emailVerified) {
+        dispatch(setuser(null));
+        nav("/signin");
+        return;
+      }
+
       dispatch(setuser({
         uid: userinfo.uid,
         email: userinfo.email
       }));
 
-      const interval = setInterval(async () => {
-        await userinfo.reload();
-
-        if (userinfo.emailVerified&&(window.location.pathname === "/"||window.location.pathname==="/signin")) {
-          clearInterval(interval);
-          nav("/home");
-        }
-      }, 3000);
+      if (window.location.pathname === "/" || window.location.pathname === "/signin") {
+        nav("/home");
+      }
 
     } else {
       dispatch(setuser(null));

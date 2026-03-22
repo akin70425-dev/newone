@@ -95,7 +95,7 @@
 @media(max-width:545px){
     .hero-con p{
         font-weight: 300;
-        font-size: 8px !important;
+        font-size: 15px !important;
     }
      .critical-image{
         padding: 0px 10px !important;
@@ -103,7 +103,7 @@
 }
 @media(max-width:434px){
     .hero-con p{
-        font-size: 7px !important;
+        font-size: 15px !important;
     }
     .critical-image{
         height:250px !important;
@@ -111,7 +111,7 @@
 }
 @media(max-width:391px){
     .hero-con p{
-        font-size: 6px !important;
+        font-size: 13px !important;
     }
     .critical-image{
         height:250px !important;
@@ -119,7 +119,7 @@
 }
 @media(max-width:344px){
     .hero-con p{
-        font-size: 5px !important;
+        font-size: 10px !important;
     }
     .hero-cons button{
         padding: 5px;

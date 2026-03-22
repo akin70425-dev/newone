@@ -250,8 +250,8 @@ function toggleMenu(){
             </p></div>
             </div>
             </div>
-        <p >Netflix India</p>
-        <footer className='pt-2'>
+        <p className='copyright'>Netflix India</p>
+        <footer className='pt-2 copyright'>
             This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
         </footer>
         </div>

@@ -59,12 +59,12 @@ function Footer() {
             </p></div>
             </div>
             </div>
-            <Form.Select aria-label="Default select example" className='eh-1 mb-4'>
+            <Form.Select aria-label="Default select example" className='eh-1 mb-4 copyright'>
       <option value="1">English</option>
       <option value="2">Hindi</option>
     </Form.Select>
-        <p >Netflix India</p>
-        <footer className='pt-2'>
+        <p className='copyright'>Netflix India</p>
+        <footer className='pt-2 copyright'>
             This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
         </footer>
     </div>
