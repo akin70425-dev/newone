@@ -4,7 +4,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "./firebase"; 
 
 function Accounts() {
-  let dispatch = useDispatch();
 
   async function logout() {
     await signOut(auth);         
@@ -12,7 +11,7 @@ function Accounts() {
 
   return (
     <div>
-      <button onClick={()=>{logout()}}>log out</button>
+      <button className='logout-btn' onClick={()=>{logout()}}>log out</button>
     </div>
   )
 }

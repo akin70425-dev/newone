@@ -4,17 +4,23 @@ import Reason from './Reason';
 import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setemailcopy } from './dataslice';
 
 function Intro() {
-
-let [email,setemail]=useState();
+let emailcopy=useSelector((state)=>state.user.emailcopy)
 let sim=">"
 let nav=useNavigate();
-  
+const dispatch=useDispatch();
 
 function navigate(){
   nav('/signin')
 }
+function getnav(){
+      if(emailcopy){
+        nav("/signin");
+        dispatch(removeemailcopy());
+      }
+    }
 
   return (
     <>
@@ -22,7 +28,7 @@ function navigate(){
       <div className='container py-5'>
     <div className='row'>
     <div className='col-lg-10 col-md-7 col-9'>
- <h2 className='logoo'>NETFLIX</h2>
+ <h2 className='logo'>NETFLIX</h2>
     </div>
     <div className='col-lg-1 col-md-4 col-2 d-lg-block d-md-block d-none'>
        <Form.Select aria-label="Default select example" className='eh mb-4'>
@@ -49,8 +55,8 @@ function navigate(){
     
         <div className='row ctn-1-btns'>
         <div className='col-12 ctn-1-btns-con'>
-        <input type="email" placeholder='Email address'className='getinput' value={email}  required/>
-        <button type="button " className="ho" >Get Start {sim}</button>
+        <input type="email" placeholder='Email address'className='getinput' onChange={(e)=>{dispatch(setemailcopy(e.target.value))}} value={emailcopy}  required/>
+        <button type="button " className="ho" onClick={()=>{getnav()}}>Get Start {sim}</button>
         <hr className='hr'></hr>
         </div>
         </div>

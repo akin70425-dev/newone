@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
-
-
+import { setemailcopy} from './dataslice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { removeemailcopy } from './dataslice';
 
 function Footer() {
-    let sam=">"
+
+  let nav=useNavigate();
+    let sim=">"
+    let emailcopy=useSelector((state)=>state.user.emailcopy)
+   let dispatch=useDispatch();
     
-   
-    
-    
+    function getnav(){
+      if(emailcopy){
+        nav("/signin");
+        dispatch(removeemailcopy());
+      }
+    }
+
   return (
     <>
     <div className="container py-5 footer-con">
@@ -16,8 +26,8 @@ function Footer() {
             <div className="col-12 ">
                 <p className='pb-4'>Ready to watch? Enter your email to create or restart your membership.</p>
                 <div className='buttons pb-5'>
-                <input type="text" placeholder='Email address' value={""}  required/>
-                <button className="ho" onClick={()=>{}}>Get Strated {sam}</button>
+                <input type="email" placeholder='Email address'className='getinput' onChange={(e)=>{dispatch(setemailcopy(e.target.value))}} value={emailcopy}  required/>
+                        <button type="button " className="ho" onClick={()=>{getnav()}}>Get Start {sim}</button>
                 </div>
             </div>
         </div>

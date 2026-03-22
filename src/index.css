@@ -26,7 +26,7 @@ body{
     object-fit: cover;
     
 }
-.logoo{
+.logo{
     
     font-size: 2rem;
     color:rgb(202, 28, 28);
@@ -40,7 +40,7 @@ body{
     display: flex;
     justify-content: space-betwee;
 }
-.btns{
+.btns,button{
     font-size: 1rem;
     padding: 7px 12px;
     border-radius: 5px;
@@ -222,7 +222,7 @@ body{
 }
 .buttons input{
     padding: 15px;
-    max-width: 530px;
+    max-width: 500px;
     background-color: black;
     border-radius: 7px;
     border-color: azure;
@@ -230,18 +230,18 @@ body{
     border: 0.1px solid rgb(82, 80, 80);
     outline: none;
     color:azure;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     
 }
 .buttons button{
     padding: 15px;
-    width: 200px;
+    max-width: 200px;
     margin-left: 3px;
     border-radius: 7px;
     border:1px solid black;
     background-color:rgb(202, 28, 28);
     color: azure;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     cursor: pointer;
 }
 
@@ -285,6 +285,11 @@ color:azure
 .info p{
     cursor: pointer;
 }
+.logout-btn{
+    margin:20px 0 0 20px;
+}
+
+
 @media(max-width:1430px){
 .ho{
     font-size: 10px;

@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
 import { auth } from "./firebase";
+import { useDispatch, useSelector } from 'react-redux';
+import { removeemailcopy } from './dataslice';
 
 function Signin() {
 let nav=useNavigate();
-
-let[email,setemail]=useState("");
+const dispatch=useDispatch();
+let emailcopy=useSelector((state)=>state.user.emailcopy)
 let[password,setpassword]=useState("");
+let[email,setemail]=useState(""||emailcopy);
 let[check,setcheck]=useState(true);
 
 function handlecheck(){
@@ -28,6 +31,7 @@ function createuser() {
 
   setemail("");
   setpassword("");
+  
 }
 
 function signin() {
@@ -47,6 +51,7 @@ function signin() {
 
   setemail("");
   setpassword("");
+  dispatch(removeemailcopy())
 }
 
   let handlelogo=()=>{

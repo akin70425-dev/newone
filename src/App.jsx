@@ -4,23 +4,20 @@ import './App.css';
 import Intro from './Intro';
 import Signin from './Signin';
 import {Routes,Route, useNavigate} from "react-router-dom";
-import Getstart from './Getstart';
 import Home from './home';
 import Tvshows from './tvshows';
 import Movies from './Movies';
 import New from './new';
 import Accounts from './Accounts';
 import Children from './children';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, reload } from 'firebase/auth';
 import { auth } from './firebase';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setuser } from './dataslice';
 
 function App() {
 let nav=useNavigate();
 let dispatch=useDispatch();
-let user=useSelector((state)=>state.user.users);
 
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (userinfo) => {
@@ -30,28 +27,31 @@ useEffect(() => {
         uid: userinfo.uid,
         email: userinfo.email
       }));
+
+      if (location.pathname === "/"||"/signin") {
+        nav("/home");
+      }
+
     } else {
-      nav("/");
       dispatch(setuser(null));
+
+      const privateRoutes = ["/home", "/movies", "/tvshows","/accounts","/new","/children"];
+
+      if (privateRoutes.includes(window.location.pathname)) {
+        nav("/");
+      }
     }
+
   });
 
-  return () => unsubscribe();
+  return unsubscribe;
 }, []);
-
-
-useEffect(() => {
-  if (user) {
-    console.log("Redux user:", user);
-  }
-}, [user]);
 
   return (
     <>
     <Routes>
       <Route path='/' element={<Intro/>}></Route>
       <Route path='/signin' element={<Signin/>}/>
-      <Route path='/getstart' element={<Getstart />}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/tvshows' element={<Tvshows/>}/>
       <Route path="/movies" element={<Movies/>}/>
