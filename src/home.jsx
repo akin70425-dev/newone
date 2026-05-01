@@ -30,10 +30,10 @@ function Home() {
        });
    }, []);
 let hero=[
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/22458.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(39, 2, 2, 1))"},
-    {"id":1,"img":"https://wallpapercave.com/wp/wp15870081.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(11, 59, 81, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/7773.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(20, 39, 65, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24522.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/22458.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(71, 23, 23, 1))","h1":"F-1","p1":"A fallen legend returns to the track as the world’s fastest sport demands one last shot at glory.","p2":"Amid roaring engines, fierce rivalries, and relentless pressure, he teams up with a rising talent,","p3":"where speed is everything—and redemption lies just one race away.","video":"MabUPLaLz6w" },
+    {"id":2,"img":"https://wallpapercave.com/wp/wp15870081.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(11, 59, 81, 1))","h1":"Saiyaara","p1":"A chance encounter sparks an unforgettable love as two souls from different worlds collide.","p2":"Bound by music, dreams, and unspoken emotions, they navigate heartbreak, hope, and destiny,","p3":"where love becomes their strength—and their greatest test against the unknown.","video":"GagxSlo253M"},
+    {"id":3,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/7773.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))","h1":"KGF-2","p1":"A ruthless empire rises from blood and fire as one man dares to challenge destiny.","p2":"In a world ruled by power, gold, and fear, he faces deadly enemies and impossible odds,","p3":"where ambition becomes his weapon and his name turns into a legend no one can ignore.","video":"tLeTx5OdjZs"},
+    {"id":4,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24522.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))","h1":"Stranger Things","p1":"A quiet town hides a gateway to something far more sinister than anyone could imagine.","p2":"When a young boy vanishes, a group of friends uncover secret experiments, strange powers, and a terrifying parallel world,","p3":"where courage and friendship become their only hope against the darkness closing in.","video":"e4XvO7DItmc"},
 ]
 
 useEffect(()=>{
@@ -62,6 +62,7 @@ function handleactive(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 
 function handleactivehorror(id){
@@ -70,6 +71,7 @@ function handleactivehorror(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivescifi(id){
     setactive(true);
@@ -77,6 +79,7 @@ function handleactivescifi(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivecomady(id){
     setactive(true);
@@ -84,6 +87,7 @@ function handleactivecomady(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleclose(){
     setactive(false);
@@ -92,12 +96,28 @@ function handleclose(){
 function handleheroplay(){
     setactive(true);
     setwatchmovie(randomhero);
+    window.history.pushState({ videoOpen: true }, "");
 }
  const [open,setOpen] = useState(false)
 
 function toggleMenu(){
   setOpen(!open)
 }   
+
+useEffect(() => {
+    const handleBack = (e) => {
+        if (active) {
+            handleclose(); 
+        }
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+        window.removeEventListener("popstate", handleBack);
+    };
+}, [active]);
+
   return (
     <>
     <div className='ab'> 
@@ -109,9 +129,6 @@ function toggleMenu(){
       title="YouTube trailer"
       allow=" encrypted-media"
     ></iframe>}
-    <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
-    <span >Close</span>
-    </p>
     </div>
      <div className=" home-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgb(0,0,0)), url(${randomhero.img})`}}>
     <div className="container">
@@ -146,8 +163,8 @@ function toggleMenu(){
         <div className={`row  hero-con ${open?"open":"notopen"} `} >
             <div className="col-12">
                 
-                <h1>WEDNESDAY</h1>
-                <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
+                <h1>{randomhero.h1}</h1>
+                <p>{randomhero.p1} <br /> {randomhero.p2} <br />{randomhero.p3}</p>
             </div>
         </div>
         <div className="row hero-cons pb-5">

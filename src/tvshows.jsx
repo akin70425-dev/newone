@@ -32,10 +32,10 @@ function Tvshows() {
         });
     }, []);
 let hero=[
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/9302.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(4, 29, 9, 1))"},
-    {"id":1,"img":"https://wallpapercave.com/wp/wp6581266.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(52, 28, 6, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/14931.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(43, 3, 24, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/1769.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/9302.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(6, 3, 29, 1))","h1":"Wednesday","p1":"A sharp-minded outcast arrives at a school where secrets hide behind every shadow.","p2":"Amid eerie mysteries and dark murders, she unravels the truth with cold precision,","p3":"where intelligence is her weapon—and nothing is as normal as it seems.","video":"4VwAPaUKysQ" },
+    {"id":1,"img":"https://wallpapercave.com/wp/wp6581266.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(49, 8, 3, 1))","h1":"Money Heist","p1":"A mastermind gathers a team of outcasts to execute the perfect heist against impossible odds.","p2":"Amid clever plans and rising chaos, loyalties are tested as the pressure closes in,","p3":"where every move is a gamble—and one mistake could cost everything.","video":"B0liFT49BsE" },
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/14931.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(28, 23, 3, 1))","h1":"Peaky Blinders","p1":"A ruthless leader rises from the streets, building an empire where power is earned in blood.","p2":"Amid deadly deals and dangerous rivals, he plays a game of strategy and survival,","p3":"where ambition rules—and fear becomes his greatest weapon.","video":"lcvUGs3xaDM" },
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/1769.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(41, 33, 5, 1))","h1":"Dark","p1":"A small town hides a mystery that bends time and reality beyond understanding.","p2":"Amid missing children and tangled timelines, secrets unravel across generations,","p3":"where every choice has consequences—and the past is never truly gone." ,"video":"cq2iTHoLrt0"},
 ]
 
 useEffect(()=>{
@@ -64,6 +64,7 @@ function handleactive(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 
 function handleactivehorror(id){
@@ -72,6 +73,7 @@ function handleactivehorror(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivescifi(id){
     setactive(true);
@@ -79,6 +81,7 @@ function handleactivescifi(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivecomady(id){
     setactive(true);
@@ -86,6 +89,7 @@ function handleactivecomady(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleclose(){
     setactive(false);
@@ -94,10 +98,25 @@ function handleclose(){
 function handleheroplay(){
     setactive(true);
     setwatchmovie(randomhero);
+    window.history.pushState({ videoOpen: true }, "");
 }
 function toggleMenu(){
     setopen(!open);
 }
+
+useEffect(() => {
+    const handleBack = (e) => {
+        if (active) {
+            handleclose(); 
+        }
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+        window.removeEventListener("popstate", handleBack);
+    };
+}, [active]);
     
   return (
     <>
@@ -110,9 +129,6 @@ function toggleMenu(){
       allow=" encrypted-media"
       allowFullScreen
     ></iframe>}
-    <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
-    <span >Close</span>
-    </p>
     </div>
      <div className="children-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgb(0,0,0)), url(${randomhero.img})`}}>
     <div className="container">
@@ -139,8 +155,8 @@ function toggleMenu(){
         <div className={`row  hero-con ${open?"open":"notopen"}`}>
             <div className="col-12">
                 
-                <h1>WEDNESDAY</h1>
-                <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
+                <h1>{randomhero.h1}</h1>
+                <p>{randomhero.p1}<br /> {randomhero.p2} <br />{randomhero.p3}</p>
             </div>
         </div>
         <div className="row hero-cons pb-5">

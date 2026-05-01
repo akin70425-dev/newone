@@ -31,10 +31,10 @@ function Movies() {
         });
     }, []);
 let hero=[
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24886.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(4, 29, 9, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24343.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(52, 28, 6, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24703.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(43, 3, 24, 1))"},
-    {"id":1,"img":"https://wallpapercave.com/wp/wp8066118.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24886.jpg","bg":"linear-gradient(rgba(16, 15, 16, 0.1),rgba(30, 72, 109, 1))","h1":"Fantastic Four","p1":"A team of ordinary individuals transforms into something extraordinary beyond imagination.","p2":"Amid a cosmic accident and rising threats, four heroes unite to face the unknown,","p3":"where their powers become both a gift and a burden they must learn to control.","video":"aPxWaryd35o"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24343.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(53, 52, 52, 1))","h1":"Captain America","p1":"Heroes stand united until a conflict of ideals tears them apart from within.","p2":"Amid rising tension and broken trust, alliances begin to shatter,","p3":"where loyalty is tested—and the line between right and wrong fades away.","video":"GAeycFh5J3M"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24703.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(9, 9, 9, 1))","h1":"Avatar","p1":"where loyalty is tested—and the fate of an entire world hangs in the balance.","p2":"Amid rising conflict between two worlds, destiny begins to shift,","p3":"A distant world awakens as humans and nature collide in a fight for survival.","video":"6NTFK_6yr6I&t=14s"},
+    {"id":1,"img":"https://wallpapercave.com/wp/wp8066118.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))","h1":"Baahubali 2","p1":"A lost prince rises to reclaim his destiny and the throne that was taken from him.","p2":"Amid betrayal, war, and powerful enemies, the truth behind a legendary past unfolds,","p3":"where courage and sacrifice decide the fate of a kingdom.","video":"94BzBOpv42g"},
 ]
 
 useEffect(()=>{
@@ -64,6 +64,7 @@ function handleactive(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 
 function handleactivehorror(id){
@@ -72,6 +73,7 @@ function handleactivehorror(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivescifi(id){
     setactive(true);
@@ -79,6 +81,7 @@ function handleactivescifi(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivecomady(id){
     setactive(true);
@@ -86,6 +89,7 @@ function handleactivecomady(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleclose(){
     setactive(false);
@@ -94,12 +98,27 @@ function handleclose(){
 function handleheroplay(){
     setactive(true);
     setwatchmovie(randomhero);
+    window.history.pushState({ videoOpen: true }, "");
 }
 const [open,setOpen] = useState(false)
 
 function toggleMenu(){
   setOpen(!open)
 } 
+
+useEffect(() => {
+    const handleBack = (e) => {
+        if (active) {
+            handleclose(); 
+        }
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+        window.removeEventListener("popstate", handleBack);
+    };
+}, [active]);
     
   return (
     <>
@@ -112,9 +131,6 @@ function toggleMenu(){
       allow=" encrypted-media"
       allowFullScreen
     ></iframe>}
-    <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
-    <span >Close</span>
-    </p>
     </div>
      <div className="children-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgb(0,0,0)), url(${randomhero.img})`}}>
     <div className="container">
@@ -141,8 +157,8 @@ function toggleMenu(){
          <div className={`row  hero-con ${open?"open":"notopen"}`}>
             <div className="col-12">
                 
-                <h1>WEDNESDAY</h1>
-                <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
+                <h1>{randomhero.h1}</h1>
+                <p>{randomhero.p1}<br /> {randomhero.p2}<br />{randomhero.p3}</p>
             </div>
         </div>
         <div className="row hero-cons pb-5">

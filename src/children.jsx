@@ -30,10 +30,10 @@ function Children() {
     });
 }, []);
 let hero=[
-    {"id":1,"img":"https://wallpapercave.com/wp/wp10227905.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(6, 4, 29, 1))"},
-    {"id":1,"img":"https://wallpapercave.com/wp/wp7894895.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(52, 28, 6, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/15343.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(59, 7, 9, 1))"},
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24737.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))"},
+    {"id":1,"img":"https://wallpapercave.com/wp/wp10227905.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(7, 6, 20, 1))","h1":"Cars","p1":"A once-famous race car learns that life is more than just speed, trophies, and the roar of the crowd.","p2":"Amid new friendships, small-town challenges, and a changing world, he discovers what truly matters,","p3":"where winning isn’t everything—and the journey changes him forever.","video":"E4K7JgPJ8-s"},
+    {"id":2,"img":"https://wallpapercave.com/wp/wp7894895.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(128, 64, 11, 1))","h1":"The Lion King","p1":"A young prince is born into a kingdom where destiny and responsibility shape the circle of life.","p2":"Amid betrayal, loss, and the struggle to reclaim what is rightfully his, he discovers his true identity,","p3":"where courage is tested—and the future of the kingdom depends on him.","video":"Hu_lIqhWgcQ"},
+    {"id":3,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/15343.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(59, 7, 9, 1))","h1":"Kung Fu Panda","p1":"A clumsy but determined panda is chosen to become an unlikely hero in a world of martial arts.","p2":"Amid intense training, powerful enemies, and self-doubt, he discovers hidden strength within himself,","p3":"where belief is the greatest power—and destiny chooses the unexpected.","video":"yugNYZzndlM"},
+    {"id":4,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24737.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(10, 24, 55, 1))","h1":"Zootopia 2","p1":"A clever rookie officer returns to a city where every corner hides a new mystery.","p2":"Amid strange disappearances, shifting alliances, and growing danger, she teams up to uncover the truth,","p3":"where trust is fragile—and every clue leads deeper into chaos.","video":"5AwtptT8X8k"},
 ]
 
 useEffect(()=>{
@@ -62,6 +62,7 @@ function handleactive(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 
 function handleactivehorror(id){
@@ -70,6 +71,7 @@ function handleactivehorror(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivescifi(id){
     setactive(true);
@@ -77,6 +79,7 @@ function handleactivescifi(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivecomady(id){
     setactive(true);
@@ -84,6 +87,7 @@ function handleactivecomady(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleclose(){
     setactive(false);
@@ -92,12 +96,27 @@ function handleclose(){
 function handleheroplay(){
     setactive(true);
     setwatchmovie(randomhero);
+    window.history.pushState({ videoOpen: true }, "");
 }
 const [open,setOpen] = useState(false)
 
 function toggleMenu(){
   setOpen(!open)
 } 
+
+useEffect(() => {
+    const handleBack = (e) => {
+        if (active) {
+            handleclose(); 
+        }
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+        window.removeEventListener("popstate", handleBack);
+    };
+}, [active]);
     
   return (
     <>
@@ -110,9 +129,6 @@ function toggleMenu(){
       allow=" encrypted-media"
       allowFullScreen
     ></iframe>}
-    <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
-    <span >Close</span>
-    </p>
     </div>
      <div className="children-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgb(0,0,0)), url(${randomhero.img})`}}>
     <div className="container">
@@ -139,8 +155,8 @@ function toggleMenu(){
          <div className={`row  hero-con ${open?"open":"notopen"}`}>
             <div className="col-12">
                 
-                <h1>WEDNESDAY</h1>
-                <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
+                <h1>{randomhero.h1}</h1>
+                <p>{randomhero.p1}<br />{randomhero.p2} <br />{randomhero.p3} </p>
             </div>
         </div>
         <div className="row hero-cons pb-5">

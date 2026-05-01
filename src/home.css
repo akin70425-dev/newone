@@ -106,19 +106,3 @@ transform:scale(1.05);
 .black{
     display: none;
 }
-.close{
-    position: absolute;
-    top:9px;
-    right:12rem;
-    font-size: 31px;
-    text-align: center;
-    line-height: 23px;
-    z-index: 1000;
-    margin: 0%;
-    
-}
-.close span{
-font-size: 13px;
-text-align: center;
-
-}

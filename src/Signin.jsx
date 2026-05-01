@@ -68,16 +68,13 @@ function signin() {
         </div>
       </div>
     
-    <div className=' row signin-div py-5'>
-      <div className='col-xl-5 col-lg-6 col-md-8 col-xs-2 signin-inner mt-3'>
+    <div className=' row signin-div  py-5'>
+      <div className='col-xl-5 col-lg-6 col-md-8 col-xs-2 signin-inner p-5 mt-3'>
         <h1 className="signin-h1">Sign In</h1>
         <div className="signin-btns">
         <input type='text' placeholder='Email' value={email} onChange={(e)=>{setemail(e.target.value)}} required />
         <input type='Password' placeholder='Password' value={password} onChange={(e)=>{setpassword(e.target.value)}} required />
         <button className='btn-signin mb-2' onClick={()=>{signin()}}>Sign In</button>
-        <p>OR</p>
-        <button type="button" className='btn-usecode'>Use a sign-in code</button>
-        <p className='pt-3'><Link className='link'>Forgot password?</Link></p>
         </div>
         <div id="footer">
         <input className="checkbox mb-3" type='checkbox' checked={check} onChange={()=>{}} onClick={()=>{handlecheck()}}/><span> Remember me</span>

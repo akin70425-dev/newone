@@ -23,8 +23,8 @@ function getnav(){
 
   return (
     <>
-    <div className=' full-con img-fluid'>
-      <div className="container py-3">
+    <div className=' full-con img-fluid '>
+      <div className="container py-3 pt-5">
   <div className="d-flex align-items-center justify-content-between flex-wrap">
     <h2 className="logo alone m-0">NETFLIX</h2>
     <div className="d-flex  gap-2  mt-md-0">

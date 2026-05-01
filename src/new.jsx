@@ -31,10 +31,10 @@ function New() {
         });
     }, []);
 let hero=[
-    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24252.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(4, 29, 9, 1))","video":"ns8weNznn1Y"},
-    {"id":2,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24162.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(52, 28, 6, 1))","video":"-E3lMRx7HRQ"},
-    {"id":3,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/10731.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(43, 3, 24, 1))","video":"VwErvYgoH70"},
-    {"id":4,"img":"https://wallpapercave.com/wp/wp9910.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(60, 9, 9, 1))","video":"IPf4rGw3XHw"},
+    {"id":1,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24252.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(12, 21, 46, 1))","video":"ns8weNznn1Y","h1":"The Family Plan 2","p1":"A former assassin is forced back into action when his past resurfaces once again.","p2":"Amid dangerous enemies and a life he tried to leave behind,","p3":"where love becomes his strength—and survival means facing the truth."},
+    {"id":2,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/24162.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(40, 22, 6, 1))","video":"-E3lMRx7HRQ","h1":"Now You See Me","p1":"A group of illusionists returns with tricks more daring and dangerous than ever before.","p2":"Amid high-stakes heists and mind-bending deception, they outplay powerful enemies,","p3":"where nothing is as it seems—and every move hides a greater illusion."},
+    {"id":3,"img":"https://4kwallpapers.com/images/walls/thumbs_3t/10731.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(9, 19, 30, 1))","video":"VwErvYgoH70","h1":"Harry Potter ","p1":"AA young wizard returns to a world growing darker as a dangerous prisoner escapes.","p2":"Amid hidden truths and haunting secrets, he uncovers a past that changes everything,","p3":"where fear turns into courage—and destiny begins to take shape."},
+    {"id":4,"img":"https://wallpapercave.com/wp/wp9910.jpg","bg":"linear-gradient(rgba(0,0, 0, 0.1),rgba(46, 31, 0, 1))","video":"IPf4rGw3XHw","h1":"Pirates of the Caribbean","p1":"A rogue captain sails the seas in search of freedom, treasure, and lost legends.","p2":"Amid cursed gold, deadly pirates, and supernatural forces, chaos rules the ocean,","p3":"where loyalty is rare—and every voyage hides a new danger."},
 ]
 useEffect(()=>{
 setrandommovies([...movies].sort(()=>Math.random()-0.5));
@@ -62,6 +62,7 @@ function handleactive(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 
 function handleactivehorror(id){
@@ -70,6 +71,7 @@ function handleactivehorror(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivescifi(id){
     setactive(true);
@@ -77,6 +79,7 @@ function handleactivescifi(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleactivecomady(id){
     setactive(true);
@@ -84,6 +87,7 @@ function handleactivecomady(id){
         return data.id===id;
     })
     setwatchmovie(movie);
+     window.history.pushState({ videoOpen: true }, "");
 };
 function handleclose(){
     setactive(false);
@@ -92,12 +96,27 @@ function handleclose(){
 function handleheroplay(){
     setactive(true);
     setwatchmovie(randomhero);
+    window.history.pushState({ videoOpen: true }, "");
 }
 const [open,setOpen] = useState(false)
 
 function toggleMenu(){
   setOpen(!open)
-} 
+}
+
+useEffect(() => {
+    const handleBack = (e) => {
+        if (active) {
+            handleclose(); 
+        }
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+        window.removeEventListener("popstate", handleBack);
+    };
+}, [active]);
 
     
   return (
@@ -111,9 +130,6 @@ function toggleMenu(){
       allow=" encrypted-media"
       allowFullScreen
     ></iframe>}
-    <p className="close" role='button' onClick={()=>{handleclose()}}>x <br />
-    <span >Close</span>
-    </p>
     </div>
 
      <div className="children-hero" style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgb(0,0,0)), url(${randomhero.img})`}}>
@@ -141,8 +157,8 @@ function toggleMenu(){
          <div className={`row  hero-con ${open?"open":"notopen"}`}>
             <div className="col-12">
                 
-                <h1>WEDNESDAY</h1>
-                <p>A quiet town, a hidden experiment, and a mysterious parallel world collide as a group of brave kids <br /> uncover dark secrets and face terrifying forces beyond imagination,where friendship <br />becomes their greatest strength against the unknown.</p>
+                <h1>{randomhero.h1}</h1>
+                <p> {randomhero.p1} <br /> {randomhero.p2} <br /> {randomhero.p3} </p>
             </div>
         </div>
         <div className="row hero-cons pb-5">
